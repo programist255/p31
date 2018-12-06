@@ -78,8 +78,7 @@ int main()
 //	
 //	o3.get_xy(x, y);
 //	cout<<"(o1 - o2) X:"<<x<<" ,Y:"<<y<<"\n";
-//	
-////	cout<<""
+
 	
 	_getch();
 	
