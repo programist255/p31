@@ -1,34 +1,86 @@
-#include <iostream>
+#include<iostream>
+#include<conio.h>
+#include<cmath>
 
 using namespace std;
 
-class MyClass{
-	private:
-	int a;
+class cord
+{
+	int x, y;
 	public:
-	void set_a(int num){a=num;}
-	int get_a() {return a;}
+		cord()
+		{
+			x = 0;
+			y = 0;
+		}
+		cord(int i, int j)
+		{
+			x = i;
+			y = j;
+		}
+		void get_xy(int &i, int &j)
+		{
+			i = x;
+			j = y;
+		}
+		friend cord operator<<(ostream &out, cord obj);
+		friend istream& operator>>(istream &out, cord &obj);
+		friend cord operator+(cord ob, cord ob2);
+		cord operator-(cord ob2);
 };
-void MyClass::set_a(int num){
-	 a=num;
+
+cord operator<<(ostream &out, cord obj)
+		{
+			out << obj.x;
+			out << obj.y;
+		}
+istream& operator>>(istream &out, cord &obj)
+		{
+			out >> obj.x;
+			out >> obj.y;
+		}
+
+cord operator+(cord ob1, cord ob2)
+{
+	cord temp;
+	temp.x = ob1.x + ob2.x;
+	temp.y = ob1.y + ob2.y;
+	return temp;
 }
-int MyClass::get_a(){
-	return a;
+cord cord::operator-(cord ob2)
+{
+	cord temp;
+	temp.x = x - ob2.x;
+	temp.y = y = ob2.y;
+	return temp;
 }
 
-int main(){
+int main()
+{
+	system("color f0");
+	system("chcp 1251 > nul");
+	cord o1(10,20), o2(5,3), o3;
+//	int x, y;
+//	
+	o3 = o1 + o2;
+//	
+//	o3.get_xy(x, y);
+//	cout<<"(o1 + o2) X:"<<x<<" ,Y:"<<y<<"\n";
 	
-	MyClass object, obj3;
-	MyClass object2;
-	/*
-	object.a=10*2;
-	cout<<object.a;
-	*/
-	object.set_a(9*9);
-	cout<<object.get_a()<<endl;
-	object2.set_a(9*8);
-	cout<<object2.get_a()<<endl;
+	cout<<o3;
+	cout<<endl;
+	cout<<"!!=";
+	cin>>o1;
+	cout<<o1;
+	cout<<"sdf";
 	
+//	o3 = o1 - o2;
+//	
+//	o3.get_xy(x, y);
+//	cout<<"(o1 - o2) X:"<<x<<" ,Y:"<<y<<"\n";
+//	
+////	cout<<""
 	
-	return 0;
+	_getch();
+	
 }
